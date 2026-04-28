@@ -1,0 +1,877 @@
+.saira-sairafont {
+  font-family: "Saira", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+.cormorant-garamond-cormorantfont {
+  font-family: "Cormorant Garamond", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+:root{
+    --dark-blue: #181925;
+    --blue: #22243A;
+    --gold: #A07838;
+    --white: #EDE8D5;
+    --teal: #546A60;
+}
+
+html{
+    background-color: var(--blue);
+    scroll-behavior: smooth;
+}
+
+@keyframes spin {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+#vision, 
+#research,
+#neuromod,
+#people,
+#contact{
+    /* navbar height */
+    scroll-margin-top: 7rem;
+}
+
+img{
+    width:10rem;
+}
+
+body{
+    color: var(--white);
+    font-family: "Cormorant Garamond", serif;
+    margin: 0;
+}
+
+/* HEADER SECTION */
+
+#header{
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 7rem;
+    font-family: "Saira", sans-serif;
+    position: fixed;
+    padding: 1rem;
+    transition: all .5s ease-in-out;
+}
+
+#header button{
+    display: none;
+}
+
+#header #logo-header{
+    grid-column: 1;
+    grid-row:1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#header #logo{
+    display:block;
+    background-image: url(photos/trastar_logo_gold.webp);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 8rem;
+    height: 6rem;
+    margin: 4rem;
+    transition: all .5s ease-in-out;
+    z-index: 10001;
+}
+
+#header .nav{
+    grid-column: 1/-1;
+    grid-row: 1;
+    display:flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: end;
+    align-items: center;
+    padding-right: 4rem;
+    z-index: 10000;
+}
+
+#header .nav a {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    margin: 0.7rem;
+    position: relative;
+    color: var(--white);
+    transition: color .5s ease-in-out;
+}
+
+#header .nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -0.4rem;
+    height: 0.15rem;
+    width: 100%;
+    background-color: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease;
+}
+
+#header .nav a:hover {
+    color: var(--gold);
+}
+
+#header .nav a:hover::after {
+    transform: scaleX(1);
+}
+
+#header.scrolled{
+    background-color: var(--dark-blue);
+    grid-template-rows: 5rem;
+    border-bottom: 1px solid var(--gold);
+    z-index: 10000;
+}
+
+#header.scrolled #logo{
+    width: 6rem;
+    height: 5rem;
+}
+
+/* MAIN SECTION */
+
+#main{
+    display:grid;
+    height: 100vh;
+    grid-template-columns: 1fr;
+    grid-template-rows: 7rem 2rem 35vh 20vh 5rem 3rem 1fr;
+}
+
+#main img{
+    grid-column: 1/-1;
+    grid-row: 2/-1;
+    padding-top: 3rem;
+    justify-self: center;
+    width: 50%;
+    opacity: 0.08;
+    z-index: -2;
+}
+
+#main h2{
+    grid-column: 1/-1;
+    grid-row: 2;
+    padding-top: .5rem;
+    text-align: center;
+    margin-top: 0;
+    color: var(--gold);
+    text-transform: uppercase;
+    font-family: "Saira", sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 6px;
+}
+
+#main h1{
+    font-size: 5rem;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0;
+    padding: 0rem 3rem;
+}
+
+#main h1:first-of-type{
+    grid-column: 1/-1;
+    grid-row: 3;
+    align-self: end;
+}
+
+#main h1:last-of-type{
+    grid-column: 1/-1;
+    grid-row: 4;
+    color: var(--gold);
+}
+
+#main p{
+    grid-column: 1/-1;
+    grid-row: 5;
+    font-family: "Saira", sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 0rem 3rem;
+}
+
+#main #button{
+    grid-column: 1/-1;
+    grid-row: 6;
+    justify-self: center;
+}
+
+.transtar-button {
+    position: relative;
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    font-family: "Saira", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--gold);
+    background-color: var(--blue);
+    border: 1px solid var(--gold);
+    line-height: 1;
+    cursor: pointer;
+    z-index: 0;
+    transition: all .3s ease-in-out;
+}
+
+.transtar-button::before,
+.transtar-button::after,
+.transtar-frame::before,
+.transtar-frame::after {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border: 2px solid var(--gold);
+    box-sizing: border-box;
+    transition: all .2s ease-in-out;
+}
+
+.transtar-button::before {
+    top: -6px;
+    left: -6px;
+    border-right: none;
+    border-bottom: none;
+}
+
+.transtar-button::after {
+    bottom: -6px;
+    right: -6px;
+    border-left: none;
+    border-top: none;
+}
+
+.transtar-frame::before {
+    top: -6px;
+    right: -6px;
+    border-left: none;
+    border-bottom: none;
+}
+
+.transtar-frame::after {
+    bottom: -6px;
+    left: -6px;
+    border-right: none;
+    border-top: none;
+}
+
+.transtar-button:hover{
+    box-shadow: 0px 0px 7px 7px color-mix(in lab, var(--blue) 100%, var(--gold) 15%);
+    background-color: color-mix(in lab, var(--blue) 100%, var(--gold) 15%);
+}
+
+.transtar-button:hover::before{
+    top: -8px;
+    left: -8px;
+}
+
+.transtar-button:hover::after{
+    bottom: -8px;
+    right: -8px;
+}
+
+.transtar-button:hover .transtar-frame::before{
+    top: -8px;
+    right: -8px;
+}
+
+.transtar-button:hover .transtar-frame::after{
+    bottom: -8px;
+    left: -8px;
+}
+
+#main .triangle{
+    content:'';
+    position: absolute;
+    justify-self: center;
+    bottom: -.5rem;
+    rotate: 45deg;
+    width: .1rem;
+    padding: .4rem;
+    border: 2px solid var(--gold);
+    border-right: none;
+    border-bottom: none;
+    background-color: var(--dark-blue);
+    z-index: -1;
+}
+
+#main .line{
+    content:'';
+    grid-column: 1/-1;
+    grid-row: 7;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    align-self: end;
+    background: linear-gradient(90deg,rgba(34, 36, 58, 1) 0%, rgba(160, 120, 56, 1) 50%, rgba(34, 36, 58, 1) 100%);
+    z-index: -2;
+}
+
+@media screen and (max-width: 767px) {
+    #header .nav{
+        display: none;
+    }
+    #header button{
+        display: initial;
+    }
+}
+
+/* VISION SECTION */
+
+#vision{
+    background-color: var(--dark-blue);
+    margin:0;
+    display: grid;
+    grid-template-columns: 1fr 5rem minmax(20rem, 39rem) 5rem 1fr;
+    grid-template-rows: 4rem auto auto auto 2.5rem;
+    border-bottom: 1px solid color-mix(in lab, var(--blue) 100%, var(--gold) 30%)
+}
+
+#vision h2{
+    grid-column: 2/5;
+    grid-row: 2;
+    margin: 0;
+    color: var(--gold);
+    text-align: center;
+    font-size: 4rem;
+}
+
+#vision p:first-of-type{
+    grid-column: 2/5;
+    grid-row: 3;
+    text-align: center;
+    margin-bottom: 0rem;
+}
+
+#vision p span:last-of-type{
+    color: var(--teal);
+}
+
+#vision .decoration{
+    width:1rem;
+    height:5rem;
+    /* background-color: var(--teal); */
+    align-self: center;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: .5rem 1fr .5rem;
+    gap: 1px;
+}
+
+#vision .decoration:first-of-type{
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: right;
+}
+
+#vision .decoration:last-of-type{
+    grid-column: 4;
+    grid-row: 2;
+    justify-self: left;
+}
+
+#vision .decoration div{
+    height: 100%;
+    width: 100%;
+}
+
+#vision .decoration .top-u{
+    border: 1px solid var(--gold);
+    border-top: none;
+    padding-bottom: 1px;
+}
+
+#vision .decoration:first-of-type .top-u{
+    grid-row: 1;
+    grid-column: 2;
+}
+
+#vision .decoration:last-of-type .top-u{
+    grid-row: 1;
+    grid-column: 1;
+}
+
+#vision .decoration .middle-box{
+    border: 1px solid var(--gold);
+}
+
+#vision .decoration:first-of-type .middle-box{
+    grid-row: 2;
+    grid-column: 1;
+}
+
+#vision .decoration:last-of-type .middle-box{
+    grid-row: 2;
+    grid-column: 2;
+}
+
+#vision .decoration .bottom-u{
+    border: 1px solid var(--gold);
+    border-bottom: none;
+}
+
+#vision .decoration:first-of-type .bottom-u{
+    grid-row: 3;
+    grid-column: 2;
+}
+
+#vision .decoration:last-of-type .bottom-u{
+    grid-row: 3;
+    grid-column: 1;
+}
+
+#vision p:last-of-type{
+    grid-column: 2/5;
+    grid-row: 4;
+    text-align: center;
+    justify-self: center;
+    font-size: 1.1rem;
+    max-width: 70vw;
+}
+
+/* NEUROMOD SECTION */
+
+#neuromod{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 3rem auto auto 1fr 5rem 6rem;
+}
+
+/* #neuromod img{
+    grid-column: 1;
+    grid-row: 1/-1;
+    width: 100%;
+} */
+
+#neuromod .neuromod {
+    grid-column: 1;
+    grid-row: 1/-1;
+    /* width: 100%; */
+    position: relative;
+    width: 50%;
+    aspect-ratio: 1;
+    margin: auto;
+}
+
+.neuromod img {
+    position: absolute;
+    width: 80%;
+    inset: 0;
+    margin: auto;
+    z-index: 9999;
+    rotate: -5deg;
+    filter: brightness(110%) sepia(30%);
+}
+
+.neuromod .ring {
+    position: absolute;
+    border-radius: 50%;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0px 0px 36px 8px color-mix(in lab, var(--blue) 100%, var(--gold) 20%);
+    }
+    50% {
+        box-shadow: 0px 0px 36px 24px color-mix(in lab, var(--blue) 100%, var(--gold) 20%);
+    }
+}
+
+.ring-1 {
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid var(--gold);
+    animation: pulse 3s ease-in-out infinite;
+    background: radial-gradient(ellipse at center bottom, #0F1418, var(--blue));
+}
+
+.ring-2{
+    width: 110%;
+    height: 110%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 0.1rem solid color-mix(in lab, var(--gold) 10%, color-mix(in lab, var(--teal) 60%, var(--dark-blue) 50%) 90%);
+}
+
+.ring-3 {
+    width: 130%;
+    height: 130%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px dashed color-mix(in lab, var(--gold) 80%, var(--blue) 10%);
+    animation: spin 60s linear infinite;
+}
+
+.ring-4 {
+    width: 140%;
+    height: 140%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid color-mix(in lab, var(--teal) 50%, var(--blue) 10%);
+    box-shadow: 0px 0px 24px 8px color-mix(in lab, var(--blue) 100%, var(--teal) 20%);
+}
+
+#neuromod .side-note{
+    position: absolute;
+    display:grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 1fr 1fr;
+    font-family: "Saira", sans-serif;
+    opacity: 0.8;
+}
+
+.side-note .side-note-line{
+    display: relative;
+    height: 2px;
+    width: 2.5cqw;
+    background-color: var(--gold);
+    align-self: center;
+}
+
+#neuromod #side-note-left{
+    bottom: 10cqh;
+    left: -7cqw;
+    background: linear-gradient(
+        to right,
+        rgba(24,25,37,0.5),
+        rgba(24,25,37,0)
+    );
+    padding: 0.5rem 1rem;
+}
+
+#neuromod #side-note-left .side-note-line{
+    grid-row: 1/-1;
+    grid-column: 2;
+    margin-left: .75rem;
+}
+
+#neuromod #side-note-left .side-note-main{
+    text-transform: uppercase;
+    color: var(--gold);
+    text-shadow: 0 0 6px rgba(160,120,56,0.6);
+    opacity: 1;
+}
+
+#neuromod #side-note-right{
+    top: 10ch;
+}
+
+#neuromod #side-note-right .side-note-line{
+    grid-row: 1/-1;
+    grid-column: 1;
+}
+
+#neuromod h2{
+    grid-column: 2;
+    grid-row: 2;
+    text-transform: uppercase;
+    font-size: 4rem;
+    margin: 2rem 2rem .3rem 0rem;
+    width:fit-content;
+    border-top: 1px solid var(--gold);
+    position: relative;
+}
+
+#neuromod h2::before{
+    content:'';
+    width: 100%;
+    height: .7rem;
+    position: absolute;
+    background-image: linear-gradient(
+        -45deg, 
+        var(--gold) 25%, 
+        transparent 25%, 
+        transparent 50%, 
+        var(--gold) 50%, 
+        var(--gold) 75%, 
+        transparent 75%, 
+        transparent
+    );
+    background-size: 8px 8px;
+    top: -1.1rem;
+    left: 0;
+}
+
+#neuromod h3{
+    grid-column: 2;
+    grid-row: 3;
+    font-family: "Saira", sans-serif;
+    color: var(--teal);
+    font-weight: 300;
+    margin: 0;
+}
+
+#neuromod ul{
+    grid-column: 2;
+    grid-row: 4;
+    font-family: "Saira", sans-serif;
+    list-style: none;
+}
+
+#neuromod li h4{
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-bottom: .5rem;
+}
+
+#neuromod li p{
+    font-weight: 300;
+    font-size: 1rem;
+    margin-top: 0;
+}
+
+.nav-element {
+    position: relative;
+    margin-right: 2rem;
+}
+
+.nav-decoration-middle,
+.nav-decoration-outline {
+    position: absolute;
+    top: .7rem;
+    left: 0;
+    transform: rotate(45deg);
+}
+
+.nav-decoration-middle {
+    width: .3rem;
+    height: .3rem;
+    background-color: var(--gold);
+    transform: translate(-1.42rem, -50%) rotate(45deg);
+}
+
+.nav-decoration-outline {
+    width: .8rem;
+    height: .8rem;
+    border: .1rem solid var(--gold);
+    transform: translate(-1.75rem, -50%) rotate(45deg);
+}
+
+#neuromod #button{
+    grid-column: 2;
+    grid-row: 5;
+    align-self: center;
+}
+
+#neuromod .transtar-button{
+    margin-left: 1vw;
+}
+
+/* RESEARCH DIVISIONS SECTION */
+/* #research .container{
+    max-width: 120px;
+    display: contents;
+} */
+
+#research{
+    background-color: var(--dark-blue);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    border-top: 1px solid color-mix(in lab, var(--blue) 100%, var(--gold) 30%);
+    border-bottom: 1px solid color-mix(in lab, var(--blue) 100%, var(--gold) 30%);
+    padding-bottom: 3rem;
+}
+
+
+#research .header{
+    grid-row: 1;
+    grid-column: 1/-1;
+    text-align: center;
+    margin: 4.5rem 0 0 0;
+    display: grid;
+}
+
+.divider .line{
+    height: 1px;
+    width: 4.5rem;
+    background-color: var(--gold);
+    position:absolute;
+    /* top: 12px; */
+}
+
+.divider .line:first-of-type{
+    right: 2rem;
+    top: 3px;
+}
+
+.divider .line:last-of-type{
+    left: 2rem;
+    top: 3px;
+}
+
+.divider .dot{
+    height: .4rem;
+    width: .4rem;
+    background-color: var(--gold);
+    rotate: 45deg;
+}
+
+.divider{
+    justify-self: center;
+    position: relative;
+}
+
+#research .header h2{
+    font-size: 4rem;
+    margin: .5rem .5rem 0 .5rem;
+    text-transform: uppercase;
+}
+
+#research .header p{
+    font-size: 1.2rem;
+    margin: 0rem 0rem 1rem 0rem;
+    text-transform: uppercase;
+    font-family: "Saira", sans-serif;
+    color: var(--teal);
+    letter-spacing: 3px;
+    font-weight: 500;
+}
+
+.box{
+    margin: 1.5rem;
+    border: 1px solid color-mix(in lab, var(--blue) 50%, var(--gold) 20%);
+    padding: 1rem;
+    position: relative;
+    transition: border .3s ease-in-out;
+}
+
+.box .corner{
+    position: absolute;
+    height: 1rem;
+    width: 1rem;
+    border: 1px solid var(--gold);
+}
+
+.box .top-left{
+    border-bottom: none;
+    border-right: none;
+    top: 0;
+    left: 0;
+}
+
+.box .top-right{
+    border-bottom: none;
+    border-left: none;
+    top: 0;
+    right: 0;
+}
+
+.box .bot-left{
+    border-top: none;
+    border-right: none;
+    bottom: 0;
+    left: 0;
+}
+
+.box .bot-right{
+    border-top: none;
+    border-left: none;
+    bottom: 0;
+    right: 0;
+}
+
+.box .icon{
+    width:4rem;
+    height:4rem;
+    rotate: 45deg;
+    border: 1px solid color-mix(in lab, var(--blue) 50%, var(--gold) 50%);
+    display: flex;
+    justify-content: center;
+    transition: background .3s ease-in-out;
+}
+
+.box .fa-solid{
+    rotate: -45deg;
+    color: var(--gold);
+    align-self: center;
+    font-size: 1.5rem;
+}
+
+.box .line{
+    height: 1px;
+    width: 5rem;
+    background-color: color-mix(in lab, var(--blue) 50%, var(--gold) 50%);
+}
+
+.box:hover{
+    border: 1px solid color-mix(in lab, var(--blue) 50%, var(--gold) 50%);
+}
+
+.box:hover .icon{
+    background-color: color-mix(in lab, var(--blue) 80%, var(--gold) 10%);
+}
+
+#research-neuromod{
+    grid-row: 2;
+    grid-column: 1;
+    margin-right: .75rem;
+}
+
+#research-psychotronics{
+    grid-row: 2;
+    grid-column: 2;
+    margin-left: 1.15rem;
+    margin-right: 1.15rem;
+}
+
+#research-pytheas{
+    grid-row: 2;
+    grid-column: 3;
+    margin-left: .75rem;
+}
+
+#research .box{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1.5rem auto auto auto auto 1rem;
+}
+
+#research .box .icon{
+    grid-row: 2;
+    justify-self: center;
+    transition: background-color .5s ease-in-out;
+}
+
+#research .box h3{
+    grid-row: 3;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+#research .box .line{
+    grid-row: 4;
+    justify-self: center;
+}
+
+#research .box p{
+    grid-row: 5;
+    font-family: "Saira", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 200;
+    padding: 0 1rem;
+    text-align: center;
+}
