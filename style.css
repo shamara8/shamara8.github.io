@@ -27,26 +27,14 @@ html{
     scroll-behavior: smooth;
 }
 
-@keyframes spin {
-    from {
-        transform: translate(-50%, -50%) rotate(0deg);
-    }
-    to {
-        transform: translate(-50%, -50%) rotate(360deg);
-    }
-}
-
 #vision, 
 #research,
 #neuromod,
+#history,
 #people,
-#contact{
+footer{
     /* navbar height */
     scroll-margin-top: 7rem;
-}
-
-img{
-    width:10rem;
 }
 
 body{
@@ -223,7 +211,7 @@ body{
     letter-spacing: 3px;
     color: var(--gold);
     background-color: var(--blue);
-    border: 1px solid var(--gold);
+    border: 3px double color-mix(in lab, var(--blue) 30%, var(--gold) 60%);
     line-height: 1;
     cursor: pointer;
     z-index: 0;
@@ -236,64 +224,65 @@ body{
 .transtar-frame::after {
     content: "";
     position: absolute;
-    width: 12px;
-    height: 12px;
-    border: 2px solid var(--gold);
+    width: 14px;
+    height: 14px;
+    border: .1rem solid color-mix(in lab, var(--blue) 30%, var(--gold) 60%);
     box-sizing: border-box;
     transition: all .2s ease-in-out;
 }
 
 .transtar-button::before {
-    top: -6px;
-    left: -6px;
-    border-right: none;
-    border-bottom: none;
+    top: -8px;
+    left: -8px;
+    border-left: none;
+    border-top: none;
 }
 
 .transtar-button::after {
-    bottom: -6px;
-    right: -6px;
-    border-left: none;
-    border-top: none;
-}
-
-.transtar-frame::before {
-    top: -6px;
-    right: -6px;
-    border-left: none;
+    bottom: -8px;
+    right: -8px;
+    border-right: none;
     border-bottom: none;
 }
 
-.transtar-frame::after {
-    bottom: -6px;
-    left: -6px;
+.transtar-frame::before {
+    top: -8px;
+    right: -8px;
     border-right: none;
     border-top: none;
+}
+
+.transtar-frame::after {
+    bottom: -8px;
+    left: -8px;
+    border-left: none;
+    border-bottom: none;
 }
 
 .transtar-button:hover{
     box-shadow: 0px 0px 7px 7px color-mix(in lab, var(--blue) 100%, var(--gold) 15%);
     background-color: color-mix(in lab, var(--blue) 100%, var(--gold) 15%);
+    border-color: color-mix(in lab, var(--blue) 15%, var(--gold) 85%);
 }
 
 .transtar-button:hover::before{
-    top: -8px;
-    left: -8px;
+    top: -9px;
+    left: -9px;
 }
 
 .transtar-button:hover::after{
-    bottom: -8px;
-    right: -8px;
+    bottom: -9px;
+    right: -9px;
 }
 
 .transtar-button:hover .transtar-frame::before{
-    top: -8px;
-    right: -8px;
+    top: -9px;
+    right: -9px;
 }
 
 .transtar-button:hover .transtar-frame::after{
-    bottom: -8px;
-    left: -8px;
+    bottom: -9px;
+    left: -9px;
 }
 
 #main .triangle{
@@ -493,6 +482,15 @@ body{
     }
 }
 
+@keyframes spin-neuromod {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
 .ring-1 {
     width: 100%;
     height: 100%;
@@ -520,7 +518,7 @@ body{
     left: 50%;
     transform: translate(-50%, -50%);
     border: 1px dashed color-mix(in lab, var(--gold) 80%, var(--blue) 10%);
-    animation: spin 60s linear infinite;
+    animation: spin-neuromod 60s linear infinite;
 }
 
 .ring-4 {
@@ -655,20 +653,6 @@ body{
     transform: rotate(45deg);
 }
 
-.nav-decoration-middle {
-    width: .3rem;
-    height: .3rem;
-    background-color: var(--gold);
-    transform: translate(-1.42rem, -50%) rotate(45deg);
-}
-
-.nav-decoration-outline {
-    width: .8rem;
-    height: .8rem;
-    border: .1rem solid var(--gold);
-    transform: translate(-1.75rem, -50%) rotate(45deg);
-}
-
 #neuromod #button{
     grid-column: 2;
     grid-row: 5;
@@ -680,6 +664,7 @@ body{
 }
 
 /* RESEARCH DIVISIONS SECTION */
+
 /* #research .container{
     max-width: 120px;
     display: contents;
@@ -687,11 +672,20 @@ body{
 
 #research{
     background-color: var(--dark-blue);
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid color-mix(in lab, var(--blue) 100%, var(--gold) 30%);
+    border-bottom: 1px solid color-mix(in lab, var(--blue) 100%, var(--gold) 30%);
+}
+
+.container{
+    max-width: 1200px;
+}
+
+#research .container{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;
-    border-top: 1px solid color-mix(in lab, var(--blue) 100%, var(--gold) 30%);
-    border-bottom: 1px solid color-mix(in lab, var(--blue) 100%, var(--gold) 30%);
     padding-bottom: 3rem;
 }
 
@@ -734,13 +728,13 @@ body{
     position: relative;
 }
 
-#research .header h2{
+.header h2{
     font-size: 4rem;
     margin: .5rem .5rem 0 .5rem;
     text-transform: uppercase;
 }
 
-#research .header p{
+.header p{
     font-size: 1.2rem;
     margin: 0rem 0rem 1rem 0rem;
     text-transform: uppercase;
@@ -751,7 +745,7 @@ body{
 }
 
 .box{
-    margin: 1.5rem;
+    margin: 0.75rem;
     border: 1px solid color-mix(in lab, var(--blue) 50%, var(--gold) 20%);
     padding: 1rem;
     position: relative;
@@ -827,20 +821,16 @@ body{
 #research-neuromod{
     grid-row: 2;
     grid-column: 1;
-    margin-right: .75rem;
 }
 
 #research-psychotronics{
     grid-row: 2;
     grid-column: 2;
-    margin-left: 1.15rem;
-    margin-right: 1.15rem;
 }
 
 #research-pytheas{
     grid-row: 2;
     grid-column: 3;
-    margin-left: .75rem;
 }
 
 #research .box{
@@ -855,7 +845,7 @@ body{
     transition: background-color .5s ease-in-out;
 }
 
-#research .box h3{
+.box h3{
     grid-row: 3;
     font-size: 2rem;
     text-align: center;
@@ -874,4 +864,416 @@ body{
     font-weight: 200;
     padding: 0 1rem;
     text-align: center;
+}
+
+/* HISTORY SECTION */
+
+#history{
+    /* margin-top: 2rem; */
+    display: flex;
+    justify-content: center;
+}
+
+#history .container{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+}
+
+#history .header{
+    margin-top: 4.5rem;
+    grid-row: 1;
+    grid-column: 1/-1;
+    text-align: center;
+    display: grid;
+}
+
+#history .timeline{
+    grid-row: 2;
+    grid-column: 1/-1;
+}
+
+#history .timeline ul{
+    padding: 1.5rem 0 0 0;
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto auto;
+    border-top: 1px solid color-mix(in lab, var(--blue) 60%, var(--gold) 30%);
+}
+
+
+/* need to position the decoration differently then in the previous section */
+#history .nav-decoration-middle,
+#history .nav-decoration-outline {
+    position: absolute;
+    top: -1.5rem;
+    left: 1.8rem;
+    transform: rotate(45deg);
+}
+
+#history .nav-decoration-middle {
+    width: .3rem;
+    height: .3rem;
+    background-color: var(--gold);
+    transform: translate(-1.42rem, -50%) rotate(45deg);
+}
+
+#history .nav-decoration-outline {
+    width: .8rem;
+    height: .8rem;
+    background-color: var(--blue);
+    border: .1rem solid var(--gold);
+    transform: translate(-1.75rem, -50%) rotate(45deg);
+}
+
+#history .nav-element .year{
+    font-family: "Saira", sans-serif;
+    color: var(--teal);
+}
+
+#history .nav-element h3{
+    font-size: 1.7rem;
+    margin: .3rem 0;
+}
+
+#history .nav-element p{
+    font-family: "Saira", sans-serif;
+    font-weight: 200;
+    font-size: .9rem;
+}
+
+#history .images .view{
+    position: relative;
+    grid-row: 3;
+    grid-column: 1/-1;
+    height: 30rem;
+    width: 100%;
+}
+
+#history .images .view-img {
+    position: absolute;
+    inset: 0;
+    width: fit-content;
+    height: 80%;
+    margin-top: .5rem;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    justify-self: center;
+    border: 1px solid color-mix(in lab, var(--blue) 20%, var(--gold) 80%);
+    /* border: 1px solid var(--gold); */
+}
+
+#history .images .view-img.active {
+    opacity: 1;
+}
+
+/* PEOPLE SECTION */
+
+#people{
+    background-color: var(--dark-blue);
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid color-mix(in lab, var(--blue) 100%, var(--gold) 30%);
+}
+
+#people .container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    padding-bottom: 3rem;
+}
+
+#people .header{
+    grid-row: 1;
+    grid-column: 1/-1;
+    text-align: center;
+    margin: 4.5rem 0 0 0;
+    display: grid;
+}
+
+#people .box{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1.5rem auto auto auto 2px 1fr 1rem;
+}
+
+#people .image{
+    grid-row: 2;
+    justify-self: center;
+    /* transition */
+    border-radius: 50%;
+    height: 10rem;
+    width: 10rem;
+    /* border: 1px solid var(--gold); */
+    position: relative;
+}
+
+.box .image .content{
+    border-radius: 50%;
+    height: 100%;
+    width: 100%;
+    border: .1rem solid transparent;
+    overflow: hidden;
+    z-index: 1;
+    position: relative;
+}
+
+.box .image .border {
+    position: absolute;
+    inset: 0;
+    left: -1px;
+    top: -1px;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 1px solid var(--gold);
+    pointer-events: none;
+    z-index: 3; /* 👈 above image */
+}
+
+#people .image img{
+    padding: 10% 10% 0% 10%;
+    justify-self: center;
+    /* height: 20cqh;
+    width: 20cqh; */
+    height: 90%;
+    width: 80%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+#riley .image img{
+    padding: 20% 20% 0% 10%;
+    height: 80%;
+    width: 70%;
+}
+
+.box .dot{
+    position: absolute;
+    width: .5rem;
+    height: .5rem;
+    background-color: var(--gold);
+    rotate: 45deg;
+    z-index: 4;
+}
+
+.box .left-dot{
+    left: -.25rem;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.box .top-dot{
+    top: -.25rem;
+    left: 0;
+    right: 0;
+    margin-inline: auto;
+}
+
+.box .right-dot{
+    right: -.25rem;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.box .bottom-dot{
+    bottom: -.25rem;
+    right: 0;
+    left: 0;
+    margin-inline: auto;
+}
+
+.box .middle-circle{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 7%;
+    left: -7%;
+    top: -7%;
+    border-radius: 50%;
+    border: 1px solid color-mix(in lab, var(--blue) 50%, var(--gold) 40%);
+}
+
+@keyframes spin{
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.box .outer-circle{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 14%;
+    left: -14%;
+    top: -14%;
+    border-radius: 50%;
+    border: 1px dashed color-mix(in lab, var(--blue) 50%, var(--gold) 25%);
+    animation: spin 45s linear infinite;
+}
+
+/* remove margin because of the note under */
+#people h3{
+    margin-top: 1.5rem;
+    margin-bottom: .2rem;
+}
+
+#people .note{
+    grid-row: 4;
+    font-family: "Saira", sans-serif;
+    font-weight: 300;
+    color:var(--teal);
+    margin-bottom: .8rem;
+    text-align: center;
+}
+
+#people .line{
+    grid-row: 5;
+    justify-self: center;
+}
+
+#people .box p{
+    grid-row: 6;
+    font-family: "Saira", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 200;
+    padding: 0 1rem;
+    text-align: center;
+}
+
+/* FOOTER */
+
+footer{
+    background-color: var(--dark-blue);
+    font-family: "Saira", sans-serif;
+    padding: 2rem 2rem 0 2rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto;
+}
+
+footer #divider{
+    display: contents;
+}
+
+footer #divider .lower-arrow{
+    width: 1rem;
+    height: 1rem;
+    border: .1rem solid var(--gold);
+    border-right: none;
+    border-bottom: none;
+    rotate: 45deg;
+    grid-row: 1;
+    grid-column: 1/-1;
+    justify-self: center;
+    align-self: center;
+}
+
+footer #divider .upper-arrow{
+    width: 1.5rem;
+    height: 1.5rem;
+    border: .1rem solid var(--gold);
+    border-right: none;
+    border-bottom: none;
+    rotate: 45deg;
+    grid-row: 1;
+    grid-column: 1/-1;
+    justify-self: center;
+    align-self: center;
+}
+
+footer #divider .left-line{
+    height: 1px;
+    width: 47%;
+    background: linear-gradient(90deg,var(--dark-blue) 0%, var(--gold) 100%);
+    grid-row: 1;
+    grid-column: 1/-1;
+    justify-self:baseline;
+    transform: translateY(.25rem);
+}
+
+footer #divider .right-line{
+    height: 1px;
+    width: 47%;
+    background: linear-gradient(90deg,var(--gold) 0%, var(--dark-blue) 100%);
+    grid-row: 1;
+    grid-column: 1/-1;
+    justify-self:end;
+    transform: translateY(.25rem);
+}
+
+footer #name{
+    grid-row: 2;
+    grid-column: 1/-1;
+    color: var(--gold);
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+footer #footer-info{
+    grid-row: 3;
+    grid-column: 1/-1;
+    justify-self: center;
+    display: grid;
+    width: 1200px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+}
+
+footer .footer-element{
+    margin: 1rem;
+}
+
+footer .footer-element ul{
+    list-style: none;
+    padding: 0;
+}
+
+footer h5{
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--teal);
+}
+
+footer .footer-element ul li a{
+    text-decoration: none;
+    color: var(--white);
+    transition: color .3s ease-in-out;
+}
+
+footer .mail:hover,
+footer .hover a:hover{
+    color: var(--gold);
+}
+
+footer #links{
+    grid-row: 1;
+    grid-column: 1;
+}
+
+footer #divisions{
+    grid-row: 1;
+    grid-column: 2;
+}
+
+footer #contacts{
+    grid-row: 1;
+    grid-column: 3;
+}
+
+footer #footnote{
+    grid-row: 4;
+    grid-column: 1/-1;
+    font-size: .7rem;
+    font-weight: 200;
+    border-top: 1px solid color-mix(in lab, var(--blue) 50%, var(--gold) 25%);
 }
