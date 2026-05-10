@@ -38,10 +38,13 @@ body{
     position: fixed;
     padding: 1rem;
     transition: all .5s ease-in-out;
+    z-index: 10000;
 }
 
 #header button{
+    position: relative;
     display: none;
+    z-index: 10002;
 }
 
 #header #logo-header{
@@ -181,7 +184,7 @@ body{
     padding: 0rem 3rem;
 }
 
-#main #button{
+#main .button{
     grid-column: 1/-1;
     grid-row: 6;
     justify-self: center;
@@ -331,7 +334,6 @@ body{
 #vision .decoration{
     width:1rem;
     height:5rem;
-    /* background-color: var(--teal); */
     align-self: center;
     display:grid;
     grid-template-columns: 1fr 1fr;
@@ -418,16 +420,9 @@ body{
     grid-template-rows: 3rem auto auto 1fr 5rem 6rem;
 }
 
-/* #neuromod img{
-    grid-column: 1;
-    grid-row: 1/-1;
-    width: 100%;
-} */
-
 #neuromod .neuromod {
     grid-column: 1;
     grid-row: 1/-1;
-    /* width: 100%; */
     position: relative;
     width: 50%;
     aspect-ratio: 1;
@@ -517,16 +512,15 @@ body{
 }
 
 .side-note .side-note-line{
-    display: relative;
     height: 2px;
-    width: 2.5cqw;
+    width: 2.5vw;
     background-color: var(--gold);
     align-self: center;
 }
 
 #neuromod #side-note-left{
     bottom: 22%;
-    left: -8cqw;
+    left: -8vw;
     background: linear-gradient(
         to right,
         rgba(24,25,37,0.5),
@@ -558,7 +552,6 @@ body{
 }
 
 #neuromod h2{
-    /* grid-column: 2; */
     grid-row: 2;
     text-transform: uppercase;
     font-size: 4rem;
@@ -589,7 +582,6 @@ body{
 }
 
 #neuromod h3{
-    /* grid-column: 2; */
     grid-row: 3;
     font-family: "Saira", sans-serif;
     color: var(--teal);
@@ -598,7 +590,6 @@ body{
 }
 
 #neuromod ul{
-    /* grid-column: 2; */
     grid-row: 4;
     font-family: "Saira", sans-serif;
     list-style: none;
@@ -629,8 +620,7 @@ body{
     transform: rotate(45deg);
 }
 
-#neuromod #button{
-    /* grid-column: 2; */
+#neuromod .button{
     grid-row: 5;
     align-self: center;
 }
@@ -640,11 +630,6 @@ body{
 }
 
 /* RESEARCH DIVISIONS SECTION */
-
-/* #research .container{
-    max-width: 120px;
-    display: contents;
-} */
 
 #research{
     background-color: var(--dark-blue);
@@ -679,7 +664,6 @@ body{
     width: 4.5rem;
     background-color: var(--gold);
     position:absolute;
-    /* top: 12px; */
 }
 
 .divider .line:first-of-type{
@@ -1253,14 +1237,12 @@ body{
     border-radius: 50%;
     border: 1px solid var(--gold);
     pointer-events: none;
-    z-index: 3; /* 👈 above image */
+    z-index: 3;
 }
 
 #people .image img{
     padding: 10% 10% 0% 10%;
     justify-self: center;
-    /* height: 20cqh;
-    width: 20cqh; */
     height: 90%;
     width: 80%;
     object-fit: cover;
@@ -1460,7 +1442,7 @@ footer .footer-element ul{
     padding: 0;
 }
 
-footer h5{
+footer h4{
     font-size: 1rem;
     font-weight: 400;
     color: var(--teal);
@@ -1477,21 +1459,6 @@ footer .hover a:hover{
     color: var(--gold);
 }
 
-/* footer #links{
-    grid-row: 1;
-    grid-column: 1;
-}
-
-footer #divisions{
-    grid-row: 1;
-    grid-column: 2;
-}
-
-footer #contacts{
-    grid-row: 1;
-    grid-column: 3;
-} */
-
 footer #footnote{
     grid-row: 4;
     grid-column: 1/-1;
@@ -1501,9 +1468,6 @@ footer #footnote{
 }
 
 @media (max-width: 1200px){
-    /* #vision{
-        grid-template-columns: 1fr minmax(20rem, 39rem) 1fr;
-    } */
     footer #footer-info{
         width: fit-content;
         grid-template-columns: 1fr;
@@ -1513,6 +1477,51 @@ footer #footnote{
     #people .container{
         grid-template-columns: 1fr 1fr;
         grid-template-rows: auto auto;
+    }
+
+    /* if using a smaller device, display all images and position them between corresponding li elements */
+    #history .nav-decoration-middle,
+    #history .nav-decoration-outline {
+        display: none;
+    }
+    #history .timeline,
+    #history .timeline ul,
+    #history .images{
+        display: contents;
+    }
+    #history .timeline ul li{
+        margin: 2rem 10% 1rem 10%;
+        border-top: 1px solid color-mix(in lab, var(--blue) 50%, var(--gold) 20%);
+    }
+    #history .images .view-img{
+        opacity: 1;
+    }
+    #history .images .view{
+        height: 20rem;
+    }
+    #history #kletka{
+        grid-row: 2;
+    }
+    #history #view-1{
+        grid-row: 3;
+    }
+    #history #pobeg{
+        grid-row: 4;
+    }
+    #history #view-2{
+        grid-row: 5;
+    }
+    #history #transtar{
+        grid-row: 6;
+    }
+    #history #view-3{
+        grid-row: 7;
+    }
+    #history #talos{
+        grid-row: 8;
+    }
+    #history #view-4{
+        grid-row: 9;
     }
 }
 
@@ -1526,17 +1535,80 @@ footer #footnote{
         grid-row: 6;
         width: 40%;
     }
-    #neuromod #button{
+    #neuromod .button{
         justify-self: center;
     }
 }
 
 @media (max-width: 767px) {
-    #header .nav{
-        display: none;
+    #main h1{
+        font-size: 3.5rem;
     }
-    #header button{
-        display: initial;
+
+    #header .nav.open {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 60vw;
+        max-width: 280px;
+        background-color: var(--dark-blue);
+        border-left: 1px solid var(--gold);
+        justify-content: center;
+        align-items: flex-start;
+        padding: 2rem;
+        gap: 1.5rem;
+        z-index: 9999;
+    }
+
+    #header .nav.open li a {
+        font-size: 1.1rem;
+    }
+    #header button {
+        display: block;
+        background: transparent;
+        border: none;
+        color: var(--gold);
+        font-size: 2.5rem;
+        cursor: pointer;
+        z-index: 10005; 
+        grid-column: 2;
+        justify-self: end;
+        margin-right: 3rem;
+    }
+    #header .nav {
+        display: flex;
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 70vw;
+        background-color: var(--dark-blue);
+        
+        opacity: 0;
+        transform: scale(0.95);
+        pointer-events: none;
+        
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        
+        z-index: 10004;
+    }
+
+    #header .nav.open {
+        opacity: 1;
+        margin: 0;
+        transform: scale(1);
+        pointer-events: auto;
+        z-index: 10004;
+    }
+    #header .nav.open li {
+        margin: 1.5rem 0;
+    }
+
+    #vision h2{
+        font-size: 3rem;
     }
 
     #neuromod{
@@ -1553,9 +1625,19 @@ footer #footnote{
         grid-template-columns: 1fr;
         grid-template-rows: auto auto auto auto;
     }
+
+    #history .images .view{
+        height: 12rem;
+    }
+
     #people .container{
         grid-template-columns: 1fr;
         grid-template-rows: auto auto auto auto;
     }
 }
 
+@media (max-width: 576px){
+    #vision h2{
+        font-size: 2.5rem;
+    }
+}

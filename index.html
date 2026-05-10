@@ -17,13 +17,14 @@
 
     <script src="js/scrolled.js" defer></script>
     <script src="js/images.js" defer></script>
+    <script src="js/nav.js" defer></script>
 </head>
 <body>
     <!-- NAVIGATION -->
     <header>
         <nav id="header">
             <div id="logo-header">
-                <a id="logo" href="#main"></a>
+                <a id="logo" href="https://shamara8.github.io/"></a>
                 <!-- <h1>Transtar</h1> -->
             </div>
             <ul class="nav">
@@ -46,7 +47,7 @@
         <h1>The Future Is</h1>
         <h1>Already Here</h1>
         <p>Pushing the boundaries of human potential and deep space exploration.</p>
-        <div id="button">
+        <div class="button">
             <button class="transtar-button" onclick="document.querySelector('#vision').scrollIntoView({ behavior: 'smooth' })">
                 <span class="transtar-frame">Enter TranStar</span>
             </button>
@@ -77,10 +78,6 @@
             research, we are not simply advancing civilization — we are transcending it. The stars are
             not our destination. They are our beginning.</p>
     </section>
-
-    <!-- <section id="neuromods">
-
-    </section> -->
 
     <!-- NEUROMOD SECTION -->
     <section id="neuromod">
@@ -133,7 +130,7 @@
                     </div>
                 </li>
             </ul>
-            <div id="button">
+            <div class="button">
                 <button class="transtar-button" onclick="document.querySelector('#vision').scrollIntoView({ behavior: 'smooth' })">
                     <span class="transtar-frame">Explore Neuromod Technology</span>
                 </button>
@@ -250,8 +247,10 @@
                     </li>
                 </ul>
                 <!-- Right: image card -->
-                <di class="images">
-                    <div class="view">
+                <!-- will have a wrapper for every image(for media queries), and when displayed on a desktop, they will just overlap eachother -->
+                <!-- image kletka1 -->
+                <div class="images">
+                    <div id="view-1" class="view">
                         <div class="top-left-deco">
                             <div class="outer-square"></div>
                             <div class="inner-square"></div>
@@ -289,8 +288,125 @@
                             <div class="outer-vertical-line"></div>
                         </div>
                         <img id="img-1" class="view-img" src="photos/kletka1.png" alt="The Kletka facility">
+                    </div>
+                    <!-- image pobeg -->
+                    <div id="view-2" class="view">
+                        <div class="top-left-deco">
+                            <div class="outer-square"></div>
+                            <div class="inner-square"></div>
+                            <div class="horizontal-line"></div>
+                            <div class="vertical-line"></div>
+                            <div class="circle"></div>
+                            <div class="outer-horizontal-line"></div>
+                            <div class="outer-vertical-line"></div>
+                        </div>
+                        <div class="top-right-deco">
+                            <div class="outer-square"></div>
+                            <div class="inner-square"></div>
+                            <div class="horizontal-line"></div>
+                            <div class="vertical-line"></div>
+                            <div class="circle"></div>
+                            <div class="outer-horizontal-line"></div>
+                            <div class="outer-vertical-line"></div>
+                        </div>
+                        <div class="bottom-left-deco">
+                            <div class="outer-square"></div>
+                            <div class="inner-square"></div>
+                            <div class="horizontal-line"></div>
+                            <div class="vertical-line"></div>
+                            <div class="circle"></div>
+                            <div class="outer-horizontal-line"></div>
+                            <div class="outer-vertical-line"></div>
+                        </div>
+                        <div class="bottom-right-deco">
+                            <div class="outer-square"></div>
+                            <div class="inner-square"></div>
+                            <div class="horizontal-line"></div>
+                            <div class="vertical-line"></div>
+                            <div class="circle"></div>
+                            <div class="outer-horizontal-line"></div>
+                            <div class="outer-vertical-line"></div>
+                        </div>
                         <img id="img-2" class="view-img" src="photos/pobeg.png" alt="The Kletka facility, abandoned">
+                    </div>
+                    <!-- image directors -->
+                    <div id="view-3" class="view">
+                        <div class="top-left-deco">
+                            <div class="outer-square"></div>
+                            <div class="inner-square"></div>
+                            <div class="horizontal-line"></div>
+                            <div class="vertical-line"></div>
+                            <div class="circle"></div>
+                            <div class="outer-horizontal-line"></div>
+                            <div class="outer-vertical-line"></div>
+                        </div>
+                        <div class="top-right-deco">
+                            <div class="outer-square"></div>
+                            <div class="inner-square"></div>
+                            <div class="horizontal-line"></div>
+                            <div class="vertical-line"></div>
+                            <div class="circle"></div>
+                            <div class="outer-horizontal-line"></div>
+                            <div class="outer-vertical-line"></div>
+                        </div>
+                        <div class="bottom-left-deco">
+                            <div class="outer-square"></div>
+                            <div class="inner-square"></div>
+                            <div class="horizontal-line"></div>
+                            <div class="vertical-line"></div>
+                            <div class="circle"></div>
+                            <div class="outer-horizontal-line"></div>
+                            <div class="outer-vertical-line"></div>
+                        </div>
+                        <div class="bottom-right-deco">
+                            <div class="outer-square"></div>
+                            <div class="inner-square"></div>
+                            <div class="horizontal-line"></div>
+                            <div class="vertical-line"></div>
+                            <div class="circle"></div>
+                            <div class="outer-horizontal-line"></div>
+                            <div class="outer-vertical-line"></div>
+                        </div>
                         <img id="img-3" class="view-img" src="photos/directors.png" alt="The board of directors">
+                    </div>
+                    <!-- image talos -->
+                    <div id="view-4" class="view">
+                        <div class="top-left-deco">
+                            <div class="outer-square"></div>
+                            <div class="inner-square"></div>
+                            <div class="horizontal-line"></div>
+                            <div class="vertical-line"></div>
+                            <div class="circle"></div>
+                            <div class="outer-horizontal-line"></div>
+                            <div class="outer-vertical-line"></div>
+                        </div>
+                        <div class="top-right-deco">
+                            <div class="outer-square"></div>
+                            <div class="inner-square"></div>
+                            <div class="horizontal-line"></div>
+                            <div class="vertical-line"></div>
+                            <div class="circle"></div>
+                            <div class="outer-horizontal-line"></div>
+                            <div class="outer-vertical-line"></div>
+                        </div>
+                        <div class="bottom-left-deco">
+                            <div class="outer-square"></div>
+                            <div class="inner-square"></div>
+                            <div class="horizontal-line"></div>
+                            <div class="vertical-line"></div>
+                            <div class="circle"></div>
+                            <div class="outer-horizontal-line"></div>
+                            <div class="outer-vertical-line"></div>
+                        </div>
+                        <div class="bottom-right-deco">
+                            <div class="outer-square"></div>
+                            <div class="inner-square"></div>
+                            <div class="horizontal-line"></div>
+                            <div class="vertical-line"></div>
+                            <div class="circle"></div>
+                            <div class="outer-horizontal-line"></div>
+                            <div class="outer-vertical-line"></div>
+                        </div>
                         <img id="img-4" class="view-img active" src="photos/talos1.png" alt="The Talos 1 station">
                     </div>
                 </div>
@@ -417,7 +533,7 @@
         <div id="name">TranStar Industries</div>
         <div id="footer-info">
             <div id="links" class="footer-element hover">
-                <h5>Quick Links</h5>
+                <h4>Quick Links</h4>
                 <ul>
                     <li><a href="#vision">Vision & Mission</a></li>
                     <li><a href="#">Research Initiatives</a></li>
@@ -427,7 +543,7 @@
                 </ul>
             </div>
             <div id="divisions" class="footer-element hover">
-                <h5>Research Divisions</h5>
+                <h4>Research Divisions</h4>
                 <ul>
                     <li><a>Psychotronics</a></li>
                     <li><a>Hardware Labs</a></li>
@@ -437,7 +553,7 @@
                 </ul>
             </div>
             <div id="contacts" class="footer-element">
-                <h5>Contact Us</h5>
+                <h4>Contact Us</h4>
                 <ul>
                     <li>Talos I Research Station<br>Low Earth Orbit, L2</li>
                     <li><a href="mailto:contact@transtar.com" class="mail">contact@transtar.com</a></li>
