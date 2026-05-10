@@ -625,6 +625,11 @@ body{
     align-self: center;
 }
 
+#neuromod .button a{
+    text-decoration: none;
+    color: var(--gold);
+}
+
 #neuromod .transtar-button{
     margin-left: 1vw;
 }
