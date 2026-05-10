@@ -1,19 +1,3 @@
-.saira-sairafont {
-  font-family: "Saira", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  font-variation-settings:
-    "wdth" 100;
-}
-
-.cormorant-garamond-cormorantfont {
-  font-family: "Cormorant Garamond", serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-}
-
 :root{
     --dark-blue: #181925;
     --blue: #22243A;
@@ -140,6 +124,7 @@ body{
 #main{
     display:grid;
     height: 100vh;
+    width: 100%;
     grid-template-columns: 1fr;
     grid-template-rows: 7rem 2rem 35vh 20vh 5rem 3rem 1fr;
 }
@@ -310,15 +295,6 @@ body{
     align-self: end;
     background: linear-gradient(90deg,rgba(34, 36, 58, 1) 0%, rgba(160, 120, 56, 1) 50%, rgba(34, 36, 58, 1) 100%);
     z-index: -2;
-}
-
-@media screen and (max-width: 767px) {
-    #header .nav{
-        display: none;
-    }
-    #header button{
-        display: initial;
-    }
 }
 
 /* VISION SECTION */
@@ -549,8 +525,8 @@ body{
 }
 
 #neuromod #side-note-left{
-    bottom: 10cqh;
-    left: -7cqw;
+    bottom: 22%;
+    left: -8cqw;
     background: linear-gradient(
         to right,
         rgba(24,25,37,0.5),
@@ -582,7 +558,7 @@ body{
 }
 
 #neuromod h2{
-    grid-column: 2;
+    /* grid-column: 2; */
     grid-row: 2;
     text-transform: uppercase;
     font-size: 4rem;
@@ -613,7 +589,7 @@ body{
 }
 
 #neuromod h3{
-    grid-column: 2;
+    /* grid-column: 2; */
     grid-row: 3;
     font-family: "Saira", sans-serif;
     color: var(--teal);
@@ -622,7 +598,7 @@ body{
 }
 
 #neuromod ul{
-    grid-column: 2;
+    /* grid-column: 2; */
     grid-row: 4;
     font-family: "Saira", sans-serif;
     list-style: none;
@@ -654,7 +630,7 @@ body{
 }
 
 #neuromod #button{
-    grid-column: 2;
+    /* grid-column: 2; */
     grid-row: 5;
     align-self: center;
 }
@@ -679,7 +655,7 @@ body{
 }
 
 .container{
-    max-width: 1200px;
+    max-width: 1250px;
 }
 
 #research .container{
@@ -795,6 +771,27 @@ body{
     display: flex;
     justify-content: center;
     transition: background .3s ease-in-out;
+    position: relative;
+}
+
+.box .icon .border{
+    border: 1px solid color-mix(in lab, var(--blue) 50%, var(--gold) 50%);
+    position: absolute;
+}
+
+.box .icon .border-1{
+    width: 5rem;
+    height: 3rem;
+    top: .45rem;
+    left: -.55rem;
+}
+
+.box .icon .border-2{
+    width: 5rem;
+    height: 3rem;
+    rotate: 90deg;
+    top: .45rem;
+    left: -.55rem
 }
 
 .box .fa-solid{
@@ -816,21 +813,6 @@ body{
 
 .box:hover .icon{
     background-color: color-mix(in lab, var(--blue) 80%, var(--gold) 10%);
-}
-
-#research-neuromod{
-    grid-row: 2;
-    grid-column: 1;
-}
-
-#research-psychotronics{
-    grid-row: 2;
-    grid-column: 2;
-}
-
-#research-pytheas{
-    grid-row: 2;
-    grid-column: 3;
 }
 
 #research .box{
@@ -869,7 +851,7 @@ body{
 /* HISTORY SECTION */
 
 #history{
-    /* margin-top: 2rem; */
+    margin-bottom: 2rem;
     display: flex;
     justify-content: center;
 }
@@ -917,6 +899,7 @@ body{
     width: .3rem;
     height: .3rem;
     background-color: var(--gold);
+    transition: background-color .4s ease-in-out;
     transform: translate(-1.42rem, -50%) rotate(45deg);
 }
 
@@ -926,6 +909,10 @@ body{
     background-color: var(--blue);
     border: .1rem solid var(--gold);
     transform: translate(-1.75rem, -50%) rotate(45deg);
+}
+
+#history .active .nav-decoration-middle{
+    background-color: #7b261f;
 }
 
 #history .nav-element .year{
@@ -948,26 +935,261 @@ body{
     position: relative;
     grid-row: 3;
     grid-column: 1/-1;
-    height: 30rem;
-    width: 100%;
+    height: 26rem;
+    width: 60%;
+    justify-self: center;
+    margin: .5rem;
 }
 
 #history .images .view-img {
     position: absolute;
     inset: 0;
-    width: fit-content;
-    height: 80%;
-    margin-top: .5rem;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     opacity: 0;
     transition: opacity 0.4s ease;
     justify-self: center;
     border: 1px solid color-mix(in lab, var(--blue) 20%, var(--gold) 80%);
-    /* border: 1px solid var(--gold); */
+    z-index: 1;
 }
 
 #history .images .view-img.active {
     opacity: 1;
+}
+
+.images{
+    position: relative;
+    /* has to be a grid so that the image is justified to the center */
+    display: grid; 
+}
+
+.images .inner-square{
+    height: 8px;
+    width: 8px;
+    border: 1px solid var(--gold);
+    position: absolute;
+}
+
+.images .outer-square{
+    height: 18px;
+    width: 18px;
+    border: 1px solid var(--gold);
+    position: absolute;
+    z-index: 2;
+}
+
+.images .horizontal-line{
+    height: 8px;
+    width: 7rem;
+    border: 1px solid var(--gold);
+    border-left: none;
+    border-right: none;
+    position: absolute;
+}
+
+.images .vertical-line{
+    height: 7rem;
+    width: 8px;
+    border: 1px solid var(--gold);
+    border-top: none;
+    border-bottom: none;
+    position: absolute;
+}
+
+.images .circle{
+    height: 86px;
+    width: 86px;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    position: absolute;
+    z-index: 3;
+}
+
+.images .outer-horizontal-line{
+    height: 16px;
+    width: 4rem;
+    border: 1px solid var(--gold);
+    border-left: none;
+    border-right: none;
+    position: absolute;
+}
+
+.images .outer-vertical-line{
+    height: 4rem;
+    width: 16px;
+    border: 1px solid var(--gold);
+    border-top: none;
+    border-bottom: none;
+    position: absolute;
+}
+
+.images .top-left-deco .inner-square{
+    left: -9px;
+    top: -9px;
+}
+
+.images .top-right-deco .inner-square{
+    top: -9px;
+    right: -11px;
+}
+
+.images .bottom-left-deco .inner-square{
+    bottom: -11px;
+    left: -9px;
+}
+
+.images .bottom-right-deco .inner-square{
+    bottom: -11px;
+    right: -11px;
+}
+
+.images .top-left-deco .outer-square{
+    left: -9px;
+    top: -9px;
+    border-top: none;
+    border-left: none;
+}
+
+.images .top-right-deco .outer-square{
+    top: -9px;
+    right: -11px;
+    border-top: none;
+    border-right: none;
+}
+
+.images .bottom-left-deco .outer-square{
+    bottom: -11px;
+    left: -9px;
+    border-bottom: none;
+    border-left: none;
+}
+
+.images .bottom-right-deco .outer-square{
+    bottom: -11px;
+    right: -11px;
+    border-bottom: none;
+    border-right: none;
+}
+
+.images .top-left-deco .horizontal-line{
+    top: -9px;
+    left: 10px;
+    border-bottom: none;
+}
+
+.images .top-right-deco .horizontal-line{
+    top: -9px;
+    right: 8px;
+    border-bottom: none;
+}
+
+.images .bottom-left-deco .horizontal-line{
+    bottom: -11px;
+    left: 10px;
+    border-top: none;
+}
+
+.images .bottom-right-deco .horizontal-line{
+    bottom: -11px;
+    right: 8px;
+    border-top: none;
+}
+
+.images .top-left-deco .vertical-line{
+    border-right: none;
+    top: 10px;
+    left: -9px;
+}
+
+.images .top-right-deco .vertical-line{
+    border-left: none;
+    top: 10px;
+    right: -11px;
+}
+
+.images .bottom-left-deco .vertical-line{
+    border-right: none;
+    bottom: 8px;
+    left: -9px;
+}
+
+.images .bottom-right-deco .vertical-line{
+    border-left: none;
+    bottom: 8px;
+    right: -11px;
+}
+
+.images .top-left-deco .circle{
+    clip-path: inset(50% 0 0 50%);
+    top: -61px;
+    left: -61px;
+}
+
+.images .top-right-deco .circle{
+    clip-path: inset(50% 50% 0 0);
+    top: -61px;
+    right: -63px;
+}
+
+.images .bottom-left-deco .circle{
+    clip-path: inset(0 0 50% 50%);
+    bottom: -63px;
+    left: -61px;
+}
+
+.images .bottom-right-deco .circle{
+    clip-path: inset(0 50% 50% 0);
+    bottom: -63px;
+    right: -63px;
+}
+
+.images .top-left-deco .outer-horizontal-line{
+    top: -17px;
+    left: 27px;
+    border-bottom: none;
+}
+
+.images .top-right-deco .outer-horizontal-line{
+    top: -17px;
+    right: 25px;
+    border-bottom: none;
+}
+
+.images .bottom-left-deco .outer-horizontal-line{
+    bottom: -19px;
+    left: 27px;
+    border-top: none;
+}
+
+.images .bottom-right-deco .outer-horizontal-line{
+    bottom: -19px;
+    right: 25px;
+    border-top: none;
+}
+
+.images .top-left-deco .outer-vertical-line{
+    top: 27px;
+    left: -17px;
+    border-right: none;
+}
+
+.images .top-right-deco .outer-vertical-line{
+    top: 27px;
+    right: -19px;
+    border-left: none;
+}
+
+.images .bottom-left-deco .outer-vertical-line{
+    bottom: 25px;
+    left: -17px;
+    border-right: none;
+}
+
+.images .bottom-right-deco .outer-vertical-line{
+    bottom: 25px;
+    right: -19px;
+    border-left: none;
 }
 
 /* PEOPLE SECTION */
@@ -1224,7 +1446,7 @@ footer #footer-info{
     grid-column: 1/-1;
     justify-self: center;
     display: grid;
-    width: 1200px;
+    width: 1100px;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr;
 }
@@ -1255,7 +1477,7 @@ footer .hover a:hover{
     color: var(--gold);
 }
 
-footer #links{
+/* footer #links{
     grid-row: 1;
     grid-column: 1;
 }
@@ -1268,7 +1490,7 @@ footer #divisions{
 footer #contacts{
     grid-row: 1;
     grid-column: 3;
-}
+} */
 
 footer #footnote{
     grid-row: 4;
@@ -1277,3 +1499,63 @@ footer #footnote{
     font-weight: 200;
     border-top: 1px solid color-mix(in lab, var(--blue) 50%, var(--gold) 25%);
 }
+
+@media (max-width: 1200px){
+    /* #vision{
+        grid-template-columns: 1fr minmax(20rem, 39rem) 1fr;
+    } */
+    footer #footer-info{
+        width: fit-content;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        justify-self: self-start;
+    }
+    #people .container{
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+    }
+}
+
+@media (max-width: 992px){
+    #neuromod{
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto auto 58vw;
+        padding: 2rem 3rem;
+    }
+    #neuromod .neuromod{
+        grid-row: 6;
+        width: 40%;
+    }
+    #neuromod #button{
+        justify-self: center;
+    }
+}
+
+@media (max-width: 767px) {
+    #header .nav{
+        display: none;
+    }
+    #header button{
+        display: initial;
+    }
+
+    #neuromod{
+        grid-template-rows: auto auto auto auto auto 68vw;
+    }
+    #neuromod .neuromod{
+        width: 50%;
+    }
+    #neuromod .side-note{
+        display: none;
+    }
+
+    #research .container{
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto;
+    }
+    #people .container{
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto;
+    }
+}
+
